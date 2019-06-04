@@ -15,11 +15,13 @@ class AddToDo extends Component{
       });
       //console.log(this.state.chore);
   }
+
   handleSubmit = (e) => {
       e.preventDefault();
       //console.log(this.state.chore);
       this.props.addChore(this.state);
   }
+  
   render(){
     return (
       <div>

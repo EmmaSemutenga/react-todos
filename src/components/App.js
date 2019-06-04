@@ -13,9 +13,19 @@ class App extends Component{
       ]
     }
   }
+
   addChore = (chore) => {
     chore.id = Math.random();
     const todos = [...this.state.todos, chore];
+    this.setState({
+      todos: todos,
+    })
+  }
+
+  deleteTodo = (id) => {
+    const todos = this.state.todos.filter((todo) => {
+      return todo.id !== id;
+    });
     this.setState({
       todos: todos,
     })
@@ -24,7 +34,7 @@ class App extends Component{
     return (
       <div className="container">
         <h1>ToDo App</h1>
-        <ToDos todos={this.state.todos} />
+        <ToDos todos={this.state.todos} deleteTodo = { this.deleteTodo }/>
         <AddToDo addChore={ this.addChore }/>
       </div>
     );
