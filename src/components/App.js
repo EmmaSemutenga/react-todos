@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import './materialize.css';
+import '.././materialize.css';
+import ToDos from './Todos';
 
 class App extends Component{
   constructor(props){
@@ -15,6 +16,7 @@ class App extends Component{
     return (
       <div className="container">
         <h1>ToDo App</h1>
+        <ToDos todos={this.state.todos} />
       </div>
     );
   }
