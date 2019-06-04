@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import '.././materialize.css';
 import ToDos from './Todos';
+import AddToDo from './AddToDo';
 
 class App extends Component{
   constructor(props){
@@ -12,11 +13,19 @@ class App extends Component{
       ]
     }
   }
+  addChore = (chore) => {
+    chore.id = Math.random();
+    const todos = [...this.state.todos, chore];
+    this.setState({
+      todos: todos,
+    })
+  }
   render(){
     return (
       <div className="container">
         <h1>ToDo App</h1>
         <ToDos todos={this.state.todos} />
+        <AddToDo addChore={ this.addChore }/>
       </div>
     );
   }
